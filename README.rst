@@ -1,9 +1,4 @@
-Template for the Read the Docs tutorial
+Cold Sweat's Documentation (Forge)
 =======================================
 
-This GitHub template includes fictional Python library
-with some basic Sphinx docs.
-
-Read the tutorial here:
-
-https://docs.readthedocs.io/en/stable/tutorial/
+This is the repository for the documentation on readthedocs.io
