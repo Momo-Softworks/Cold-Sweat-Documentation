@@ -1,10 +1,8 @@
-Welcome to Lumache's documentation!
+Welcome to Cold Sweat's documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**Cold Sweat** is a mod for Minecraft that adds a dynamic temperature system to the game. 
+This documentation details how third-party mod developers can hook into Cold Sweat's systems and use themm to add/change content, implement compatibility for other mods, etc.
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.
