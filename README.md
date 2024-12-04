@@ -6,75 +6,7 @@ description: The essentials of how temperature works
 
 ## Traits
 
-There are several types of temperature that affect entities in differing ways. Every entity has a separate instance of all eleven of these temperature types. These types are:\
-
-
-<mark style="color:orange;">**`World`**</mark>\
-Defines what the area around the entity feels like. This is unique to each entity and is usually affected by biomes in the vicinity, time of day, nearby blocks, etc.
-
-* Value can be read/changed (though changing it is pointless since it is overwritten every tick)
-* Value will be overwritten every tick by a newly calculated value\
-
-
-<mark style="color:orange;">**`Core`**</mark>\
-Defines the entity's internal temperature. This value will rise and fall depending on the ambient temperature.
-
-* Value can be read/changed; though in most cases, body temperature should be read instead\
-
-
-<mark style="color:orange;">**`Base`**</mark>\
-A static offset applied to the entity's core temperature. For example, a value of 10 would cause an entity's body temperature to default to 10 when at rest, rather than 0.\
-
-
-<mark style="color:orange;">**`Body`**</mark> \
-This is simply the entity's body and base temperatures added together. This starts at 0 (neutral) and can range from -150 to 150. Values as extreme as ±100 or more are deadly. \
-Note that this is not an actual type of temperature that is stored on an entity, but rather shorthand for <mark style="color:orange;">`Core`</mark>`+`<mark style="color:orange;">`Base`</mark>.
-
-* Value can be read, but not changed.
-* Value is not stored (there is no need)
-* TempModifiers cannot be applied to this value. They should be applied to Core or Base instead\
-
-
-<mark style="color:orange;">**`Rate`**</mark> \
-This value controls the speed at which the entity's total temperature reaches dangerous levels. For example, leather/insulated armor makes this process slower.\
-It is retrieved from
-
-* Value cannot be read or changed
-* Value is not stored\
-
-
-<mark style="color:orange;">**`Freezing Point`**</mark>  \
-Stores the temperature, in Minecraft units, at which the entity will begin freezing to death.&#x20;
-
-* Value can be read and changed (though changing it will not do anything, as it resets each tick)\
-
-
-<mark style="color:orange;">**`Burning Point`**</mark> \
-Stores the temperature, in Minecraft units, at which the entity will begin overheating to death.&#x20;
-
-* Value can be read and changed (though changing it will not do anything, as it resets each tick)\
-
-
-<mark style="color:orange;">**`Cold Resistance`**</mark> \
-Determines the entity's resistance to freezing damage. Ranges from 0 to 1, with 0 being no resistance and 1 being full resistance. Negative values do nothing.
-
-* Value can be read and changed (though changing it will not do anything, as it resets each tick)\
-
-
-<mark style="color:orange;">**`Heat Resistance`**</mark> \
-Determines the entity's resistance to overheating damage. Ranges from 0 to 1, with 0 being no resistance and 1 being full resistance. Negative values do nothing.
-
-* Value can be read and changed (though changing it will not do anything, as it resets each tick)\
-
-
-<mark style="color:orange;">**`Cold Dampening`**</mark> \
-Changes the rate at which the entity freezes (decreases in body temperature). Values 0 to 1 slow the speed, with 1 stopping freezing altogether. Negative values speed up freezing.
-
-* Value can be read and changed (though changing it will not do anything, as it resets each tick)
-
-
-
-All of these are different **temperature traits** that are stored on and applied to the player.&#x20;
+There are several types of temperature that affect entities in differing ways. Every entity has a separate instance of all eight of these temperature traits. These traits are defined in detail on the [Attributes](attributes.md) page.
 
 
 
