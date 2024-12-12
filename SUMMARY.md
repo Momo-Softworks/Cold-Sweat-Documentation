@@ -20,6 +20,15 @@
 * [Block/World Configs](datapacks/block-world-configs.md)
 * [Entity Configs](datapacks/entity-configs.md)
 
+## KubeJS
+
+* [KubeJS Basics](kubejs/kubejs-basics.md)
+
 ## Add-Ons
 
 * [Origin Configs](add-ons/origin-configs.md)
+
+## Conventions & Data Types
+
+* [DynamicHolder](conventions-and-data-types/dynamicholder.md)
+* [CapabilityCache](conventions-and-data-types/capabilitycache.md)
