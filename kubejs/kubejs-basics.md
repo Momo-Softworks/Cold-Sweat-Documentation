@@ -18,7 +18,7 @@ Contains miscellaneous utility methods for Cold Sweat.
 coldsweat.getConfigSetting(String id)
 ```
 
-Returns a [`DynamicHolder`](../conventions-and-data-types/dynamicholder.md) containing the value of the specified config setting. The resulting holder has no explicit type, meaning it must be cast.
+Returns a [`DynamicHolder`](../utility-classes/dynamicholder.md) containing the value of the specified config setting. The resulting holder has no explicit type, meaning it must be cast.
 
 #### `getRegistryAccess()`
 
@@ -26,7 +26,7 @@ Returns a [`DynamicHolder`](../conventions-and-data-types/dynamicholder.md) cont
 coldsweat.getRegistryAccess()
 ```
 
-Returns an instance of RegistryAccess, or null if it is not available. See [here](../conventions-and-data-types/dynamicholder.md#registry-access) for important information regarding this method.
+Returns an instance of RegistryAccess, or null if it is not available. See [here](../utility-classes/dynamicholder.md#registry-access) for important information regarding this method.
 
 #### `getTemperature()`
 

@@ -28,7 +28,7 @@
 
 * [Origin Configs](add-ons/origin-configs.md)
 
-## Conventions & Data Types
+## Utility Classes
 
-* [DynamicHolder](conventions-and-data-types/dynamicholder.md)
-* [CapabilityCache](conventions-and-data-types/capabilitycache.md)
+* [DynamicHolder](utility-classes/dynamicholder.md)
+* [CapabilityCache](utility-classes/capabilitycache.md)
