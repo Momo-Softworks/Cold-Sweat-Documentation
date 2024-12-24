@@ -23,6 +23,8 @@
 ## KubeJS
 
 * [KubeJS Basics](kubejs/kubejs-basics.md)
+* [Registries](kubejs/registries/README.md)
+  * [Block Temperature](kubejs/registries/block-temperature.md)
 
 ## Add-Ons
 
