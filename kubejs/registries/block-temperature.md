@@ -59,7 +59,7 @@ ColdSweatEvents.registries(event =>
                  .range(3),
         // Second parameter is a function that gives the current world, affected entity, state, position, and distance to the entity
         (level, entity, state, pos, distance) => {
-            // Freedom to peform any necessary calculations, then return the block's temperature
+            // Freedom to perform any necessary calculations, then return the block's temperature
             // Heat up high-health players, cool down low-health players, do nothing for other entities
             if (entity instanceof Player)
             {
