@@ -4,7 +4,7 @@ description: Index of registry methods for Cold Sweat's KubeJS integration
 
 # Registries
 
-Block Temperature
+[Block Temperature](block-temperature.md)
 
 Insulators
 
