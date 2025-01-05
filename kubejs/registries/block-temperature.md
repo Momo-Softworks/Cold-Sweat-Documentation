@@ -12,9 +12,7 @@ ColdSweatEvents.registries(event =>
         // Third parameter is a builder-style block temperature definition
         blockTemp =>
         // Registers the block temperature to these blocks
-        blockTemp.blocks("minecraft:bee_nest", "minecraft:bee_hive")
-                 // Also add to all blocks in this tag
-                 .blockTag("minecraft:logs")
+        blockTemp.blocks("minecraft:bee_nest", "minecraft:bee_hive", "#minecraft:logs")
                  // Same as maxEffect from the configs.
                  .maxEffect(50)
                  // Max environment temperature in which the block will be effective
