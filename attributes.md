@@ -60,7 +60,7 @@ Attribute modifiers can modify the entity's corresponding <mark style="color:ora
 
 Controls the entity's resistance to incoming overheating damage. Represents the percent of incoming damage to be blocked.
 
-This attribute defaults to 0, and ranges between 0 and 1.
+This attribute defaults to `NaN`, and ranges between 0 and 1.
 
 Setting the attribute value to anything else will set the entity's resistance to overheating damage to a static value, overriding any applied TempModifiers.&#x20;
 
@@ -71,7 +71,7 @@ Attribute modifiers can modify the entity's corresponding <mark style="color:ora
 
 Controls the entity's resistance to incoming freezing damage, including that from non-temperature-related sources like powder snow. Represents the percent of incoming damage to be blocked.
 
-This attribute defaults to 0, and ranges between 0 and 1.
+This attribute defaults to `NaN`, and ranges between 0 and 1.
 
 Setting the attribute value to anything else will set the entity's resistance to freezing damage to a static value, overriding any applied TempModifiers.&#x20;
 
@@ -82,7 +82,7 @@ Attribute modifiers can modify the entity's corresponding <mark style="color:ora
 
 Controls the entity's rate of overheating. Higher values decrease overheating speed, and negative values increase the speed.
 
-This attribute defaults to 0, and caps out at a value of 1, but can be infinitely negative. A value of 1 prevents the player's temperature from increasing above 0.
+This attribute defaults to `NaN`, and caps out at a value of 1, but can be infinitely negative. A value of 1 prevents the player's temperature from increasing above 0.
 
 Setting the attribute value to anything else will set the entity's overheating rate to a static value, overriding any applied TempModifiers.&#x20;
 
@@ -93,7 +93,7 @@ Attribute modifiers can modify the entity's corresponding <mark style="color:ora
 
 Controls the entity's rate of freezing. Higher values decrease freezing speed, and negative values increase the speed.
 
-This attribute defaults to 0, and caps out at a value of 1, but can be infinitely negative. A value of 1 prevents the player's temperature from decreasing below 0.
+This attribute defaults to `NaN`, and caps out at a value of 1, but can be infinitely negative. A value of 1 prevents the player's temperature from decreasing below 0.
 
 Setting the attribute value to anything else will set the entity's freezing rate to a static value, overriding any applied TempModifiers.&#x20;
 
