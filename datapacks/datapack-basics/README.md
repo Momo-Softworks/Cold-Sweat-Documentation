@@ -31,48 +31,6 @@ World datapacks (in the `datapacks` folder in world files) are not currently sup
 
 Before getting into specific use cases, it should be noted how this JSON is formed. Most of the data structures used are based on existing Vanilla data structures as closely as possible. Below are the most important ideas that need to be understood to fully utilize this system:&#x20;
 
-### Entity Requirements
-
-An entity requirement is a set of criteria that an entity must meet. They currently support checking:
-
-* Entity IDs and tags
-* Entity location:
-  * x/y/z
-  * biome at entity's position
-  * structure at entity's position
-  * &#x20;dimension at entity's position
-  * light level at entity's position
-  * block at entity's position
-  * fluid at entity's position
-* Block entity is standing on (same as "Entity location", but 1 block below)
-* Potion effects
-* NBT
-* Entity flags:
-  * On fire
-  * Sneaking
-  * Sprinting
-  * Swimming
-  * Invisible
-  * Glowing
-  * Baby
-* Equipment (head, chest, legs, feet, main hand, offhand)
-  * Each of these is an item requirement
-* Player-specific data:
-  * Game mode (survival, creative, adventure, spectator)
-  * Stats (blocks mined, distance walked, etc)
-  * Unlocked recipes
-  * Advancements
-  * Entity the player is looking at
-* Vehicle (entity that this entity is riding)
-* Passenger (entity riding this entity)
-* Target (entity being targeted by this entity, if it is a hostile mob)
-
-Entity requirements allow for defining a requirement for the entity that this entity is mounted to, or the entity that this entity is targeting. For example, a zombie is targeting a specific player, or is riding a horse. \
-\
-This can work recursively, too, (i.e. checking what entity the horse is riding), **but only up to 16 layers (or 4 for 1.21+)** due to the technical limitations of how JSON is read in Minecraft.
-
-\*\*\*WIP
-
 ### Item Requirements
 
 An item requirement is a set of criteria that an item must meet. They currently support checking:
@@ -86,9 +44,7 @@ An item requirement is a set of criteria that an item must meet. They currently 
 
 These are modeled after Vanilla's item predicates, and are structured like so:
 
-{% code fullWidth="false" %}
-```json
-{
+<pre class="language-json" data-full-width="false"><code class="lang-json">{
   // The items or item tags
   "items": [
     "minecraft:iron_chestplate",
@@ -135,9 +91,8 @@ These are modeled after Vanilla's item predicates, and are structured like so:
       "ThisTagName": "Ramphord Yortold"
     }
   }
-}
-```
-{% endcode %}
+<strong>}
+</strong></code></pre>
 
 
 
