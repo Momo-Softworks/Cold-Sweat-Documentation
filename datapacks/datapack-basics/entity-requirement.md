@@ -4,53 +4,55 @@ An entity requirement is a set of criteria that an entity must meet in order to 
 
 * Entity IDs and tags
 * Entity location:
-    * x/y/z
-    * biome at entity's position
-    * structure at entity's position
-    * dimension at entity's position
-    * light level at entity's position
-    * block at entity's position
-    * fluid at entity's position
+  * x/y/z
+  * biome at entity's position
+  * structure at entity's position
+  * dimension at entity's position
+  * light level at entity's position
+  * block at entity's position
+  * fluid at entity's position
 * Block entity is standing on (same as "Entity location", but 1 block below)
 * Potion effects
 * NBT
 * Entity flags:
-    * On fire
-    * Sneaking
-    * Sprinting
-    * Swimming
-    * Invisible
-    * Glowing
-    * Baby
+  * On fire
+  * Sneaking
+  * Sprinting
+  * Swimming
+  * Invisible
+  * Glowing
+  * Baby
 * Equipment (head, chest, legs, feet, main hand, offhand)
-    * Each of these is an item requirement
+  * Each of these is an item requirement
 * Entity-specific data:
-    * Players:
-        * Game mode (survival, creative, adventure, spectator)
-        * Stats (blocks mined, distance walked, etc)
-        * Unlocked recipes
-        * Advancements
-        * Entity the player is looking at
-    * Entities with variants (cats, horses, etc.)
-        * Variant name
-    * Fishing bobber:
-        * If the bobber is in an open lake
-    * Lightning bolt:
-        * Entities struck by the lightning
-        * Blocks set on fire
-    * Entity is wearing piglin-pacifying armor
-    * Village raiders:
-        * Is the raid captain
-        * Part of an active raid
-        * Active raid info
-    * Slime:
-        * Size of the slime
+  * Players:
+    * Game mode (survival, creative, adventure, spectator)
+    * Stats (blocks mined, distance walked, etc)
+    * Unlocked recipes
+    * Advancements
+    * Entity the player is looking at
+  * Entities with variants (cats, horses, etc.)
+    * Variant name
+  * Fishing bobber:
+    * If the bobber is in an open lake
+  * Lightning bolt:
+    * Entities struck by the lightning
+    * Blocks set on fire
+  * Entity is wearing piglin-pacifying armor
+  * Village raiders:
+    * Is the raid captain
+    * Part of an active raid
+    * Active raid info
+  * Slime:
+    * Size of the slime
 * Vehicle (entity that this entity is riding)
 * Passenger (entity riding this entity)
 * Target (entity being targeted by this entity, if it is a hostile mob)
 * Temperature traits (thermal resistance, insulation, etc.)
 
 These are modeled after Vanilla's entity predicates, and are structured like so:
+
+## Format
 
 ```json
 {
@@ -61,21 +63,26 @@ These are modeled after Vanilla's entity predicates, and are structured like so:
   ],
   // Checks the entity's location
   "location": {
-    "x": 100,
-    "y": 64,
-    "z": -50,
+    // Position relative to the entity
+    "x": 5,
+    "y": 0,
+    "z": 5,
+    // All of these support tags
     "biome": "minecraft:desert",
     "structure": "#minecraft:villages",
     "dimension": "minecraft:the_nether",
+    // Light level at the position
     "light": {
       "min": 4,
       "max": 8
     },
+    // A block requirement that checks the position
     "block": {
       "blocks": [
         "minecraft:grass_block"
       ]
     },
+    // A fluid requirement that checks the position
     "fluid": {
       "fluids": [
         "minecraft:lava"
@@ -213,6 +220,7 @@ For entities with variants, such as cats or horses, the `type_data` field should
 ```json
 {
   "type_data": {
+    "type": "variant",
     "variant": "black"
   }
 }
@@ -225,6 +233,7 @@ For fishing bobbers, the `type_data` field should be an object with a single fie
 ```json
 {
   "type_data": {
+    "type": "fishing_hook",
     "in_open_water": true
   }
 }
@@ -237,6 +246,7 @@ For lightning bolts, the `type_data` field should be an object with two fields: 
 ```json
 {
   "type_data": {
+    "type": "lightning_bolt",
     "blocks_set_on_fire": {
       "min": 1,
       "max": 5
@@ -257,6 +267,7 @@ For entities wearing piglin-pacifying armor, the `type_data` field should be an 
 ```json
 {
   "type_data": {
+    "type": "piglin_neutral_armor",
     "piglin_neutral_armor": true
   }
 }
@@ -275,6 +286,7 @@ For players, the `type_data` field should be an object with several fields:
 ```json
 {
   "type_data": {
+    "type": "player",
     "game_mode": "adventure",
     "stats": {
       "minecraft:mined": {
@@ -301,25 +313,26 @@ For players, the `type_data` field should be an object with several fields:
 
 ### Raider
 
-For village raiders, the `type_data` field should be an object with several fields:
+For village raiders, such as pillagers, evokers, and witches:
 
-* `has_raid`: A boolean indicating whether the raider is part of an active raid.
-* `is_captain`: A boolean indicating whether the raider is the raid captain.
-* `raid`: An object containing information about the active raid. The fields of this object are:
-    * `is_over`: A boolean indicating whether the raid is over.
-    * `is_between_waves`: A boolean indicating whether the raid is between waves.
-    * `is_first_wave_spawned`: A boolean indicating whether the first wave has spawned.
-    * `is_victory`: A boolean indicating whether the raid is a victory.
-    * `is_loss`: A boolean indicating whether the raid is a loss.
-    * `is_started`: A boolean indicating whether the raid has started.
-    * `is_stopped`: A boolean indicating whether the raid has stopped.
-    * `total_health`: An object with `min` and `max` fields, which should be doubles indicating the minimum and maximum total health of the raid.
-    * `bad_omen_level`: An object with `min` and `max` fields, which should be doubles indicating the minimum and maximum bad omen level of the raid.
-    * `current_wave`: An object with `min` and `max` fields, which should be integers indicating the minimum and maximum current wave of the raid.
+* `has_raid`: Whether the raider is part of an active raid.
+* `is_captain`: Whether the raider is the raid captain.
+* `raid`: Data about the raider's active raid:
+  * `is_over`: Whether the raid is over.
+  * `is_between_waves`:Whether the raid is between waves.
+  * `is_first_wave_spawned`: Whether the first wave has spawned.
+  * `is_victory`: If the raid is declared as a victory.
+  * `is_loss`: If the raid is declared as a loss.
+  * `is_started`: The raid has begun.
+  * `is_stopped`: The raid has stopped.
+  * `total_health`: A decimal-number range which requires he health of all active raid mobs combined to fall within `min` and `max`.
+  * `bad_omen_level`: An integer range between `min` and `max` which checks the level of bad omen used to start the raid.
+  * `current_wave`: An integer range which requires the current wave number to fall between `min` and `max`.
 
 ```json
 {
   "type_data": {
+    "type": "raider",
     "has_raid": true,
     "is_captain": false,
     "raid": {
@@ -354,6 +367,7 @@ For slimes, the `type_data` field should be an object with a single field named 
 ```json
 {
   "type_data": {
+    "type": "slime",
     "size": {
       "min": 1,
       "max": 3
@@ -361,3 +375,6 @@ For slimes, the `type_data` field should be an object with a single field named 
   }
 }
 ```
+
+### Snow Boots
+
