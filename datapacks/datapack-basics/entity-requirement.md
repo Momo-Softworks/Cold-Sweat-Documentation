@@ -64,6 +64,7 @@ These are modeled after Vanilla's entity predicates, and are structured like so:
   // Checks the entity's location
   "location": {
     // Position relative to the entity
+    // All location checks will use this position
     "x": 5,
     "y": 0,
     "z": 5,
@@ -197,11 +198,11 @@ These are modeled after Vanilla's entity predicates, and are structured like so:
   },
   // Checks the entity's temperature traits
   "temperature": {
-    "thermal_resistance": {
+    "heat_resistance": {
       "min": 0.5,
       "max": 1.0
     },
-    "insulation": {
+    "world": {
       "min": 0.2,
       "max": 0.8
     }
@@ -221,6 +222,7 @@ For entities with variants, such as cats or horses, the `type_data` field should
 {
   "type_data": {
     "type": "variant",
+    // The variant name
     "variant": "black"
   }
 }
@@ -234,6 +236,7 @@ For fishing bobbers, the `type_data` field should be an object with a single fie
 {
   "type_data": {
     "type": "fishing_hook",
+    // Whether the bobber is in an open body of water
     "in_open_water": true
   }
 }
@@ -241,16 +244,18 @@ For fishing bobbers, the `type_data` field should be an object with a single fie
 
 ### Lightning Bolt
 
-For lightning bolts, the `type_data` field should be an object with two fields: `blocks_set_on_fire` and `entity_struck`. The `blocks_set_on_fire` field should be an object with `min` and `max` fields, which should be integers indicating the minimum and maximum number of blocks set on fire by the lightning bolt. The `entity_struck` field should be an entity requirement that is checked against the entities struck by the lightning bolt.
+Checks some specific conditions when lighning strikes a location.
 
 ```json
 {
   "type_data": {
     "type": "lightning_bolt",
+    // The number of blocks set on fire
     "blocks_set_on_fire": {
       "min": 1,
       "max": 5
     },
+    // Any of the entities struck can pass this requirement (entity requirement)
     "entity_struck": {
       "entities": [
         "minecraft:creeper"
@@ -262,7 +267,7 @@ For lightning bolts, the `type_data` field should be an object with two fields: 
 
 ### Piglin-Neutral Armor
 
-For entities wearing piglin-pacifying armor, the `type_data` field should be an object with a single field named `piglin_neutral_armor`, which should be set to `true`.
+Checks if the player is wearing any armor that pacifies piglins (i.e. gold boots).
 
 ```json
 {
@@ -278,9 +283,9 @@ For entities wearing piglin-pacifying armor, the `type_data` field should be an 
 For players, the `type_data` field should be an object with several fields:
 
 * `game_mode`: The player's game mode (survival, creative, adventure, spectator).
-* `stats`: An object containing the player's stats. The keys of this object should be stat IDs, and the values should be objects with `min` and `max` fields, which should be integers indicating the minimum and maximum value of the stat.
-* `recipes`: An object containing the player's unlocked recipes. The keys of this object should be recipe IDs, and the values should be booleans indicating whether the recipe is unlocked.
-* `advancements`: An object containing the player's advancements. The keys of this object should be advancement IDs, and the values should be objects with a single field named `complete`, which should be a boolean indicating whether the advancement is completed.
+* `stats`: A list of checks to perform on the player's stats.&#x20;
+* `recipes`: A map of recipes that the player has unlocked. The keys of the map are the recipe IDs, and the values of the map are boolean values indicating whether they are unlocked.
+* `advancements`: A map of advancements that the player must have completed overall, or have met certain criteria.
 * `looking_at`: An entity requirement that is checked against the entity the player is looking at.
 
 ```json
@@ -288,20 +293,32 @@ For players, the `type_data` field should be an object with several fields:
   "type_data": {
     "type": "player",
     "game_mode": "adventure",
-    "stats": {
-      "minecraft:mined": {
-        "min": 100,
-        "max": 1000
+    "stats": [
+      // Mined 100 to 500 stone
+      {
+        "type": "minecraft:mined",
+        "stat": "minecraft:stone",
+        "value": {
+          "min": 100,
+          "max": 500
+        }
       }
-    },
+    ],
+    // Unlocked the furnace recipe
     "recipes": {
-      "minecraft:crafting_table": true
+      "minecraft:furnace": true
     },
     "advancements": {
-      "minecraft:story/root": {
+      // Completed the "sniper duel" advancement
+      "minecraft:adventure/sniper_duel": {
         "complete": true
+      },
+      // Has visited a beach
+      "minecraft:adventure/adventuring_time": {
+        "minecraft:beach": true
       }
     },
+    // Looking at a zombie
     "looking_at": {
       "entities": [
         "minecraft:zombie"
