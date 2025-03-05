@@ -15,9 +15,10 @@
 
 ## Datapacks
 
-* [Datapack Basics](datapacks/datapack-basics/README.md)
-  * [Entity Requirement](datapacks/datapack-basics/entity-requirement.md)
-  * [Item Requirement](datapacks/datapack-basics/item-requirement.md)
+* [Datapack Basics](datapacks/datapack-basics.md)
+* [Requirements](datapacks/requirements/README.md)
+  * [Entity Requirement](datapacks/requirements/entity-requirement.md)
+  * [Item Requirement](datapacks/requirements/item-requirement.md)
 * [Item Configs](datapacks/item-configs.md)
 * [Block/World Configs](datapacks/block-world-configs.md)
 * [Entity Configs](datapacks/entity-configs.md)

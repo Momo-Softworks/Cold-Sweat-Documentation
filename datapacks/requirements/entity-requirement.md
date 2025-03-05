@@ -5,6 +5,7 @@ An entity requirement is a set of criteria that an entity must meet in order to 
 * Entity IDs and tags
 * Entity location:
   * x/y/z
+  * x/y/z offset
   * biome at entity's position
   * structure at entity's position
   * dimension at entity's position
@@ -65,9 +66,15 @@ These are modeled after Vanilla's entity predicates, and are structured like so:
   "location": {
     // Position relative to the entity
     // All location checks will use this position
-    "x": 5,
-    "y": 0,
-    "z": 5,
+    "x_offset": 5,
+    "y_offset": 0,
+    "z_offset": 5,
+    // A range of valid absolute coordinates
+    "y": {
+      // Entity's y level must be between 0 and 64
+      "min": 0,
+      "max": 64
+    },
     // All of these support tags
     "biome": "minecraft:desert",
     "structure": "#minecraft:villages",
