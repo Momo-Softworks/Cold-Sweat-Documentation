@@ -216,7 +216,7 @@ The `type_data` field is used to check entity-specific data, such as player info
 
 ### Entities with Variants
 
-For entities with variants, such as cats or horses, the `type_data` field should be an object with a single field named `variant`, which should be a string containing the name of the variant.
+Checks the variant of the given entity, such as the color of a cat, or the personality of a panda.
 
 ```json
 {
@@ -230,13 +230,12 @@ For entities with variants, such as cats or horses, the `type_data` field should
 
 ### Fishing Bobber
 
-For fishing bobbers, the `type_data` field should be an object with a single field named `in_open_water`, which should be a boolean indicating whether the bobber is in an open lake.
+Checks if the fishing bobber is in an open body of water. This is probably used by the fishing loot tables to nerf loot from AFK farms.
 
 ```json
 {
   "type_data": {
     "type": "fishing_hook",
-    // Whether the bobber is in an open body of water
     "in_open_water": true
   }
 }
