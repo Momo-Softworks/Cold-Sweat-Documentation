@@ -4,6 +4,10 @@ description: The format of all data-driven JSON configs for Origins modifiers
 
 # Origin Configs
 
+{% hint style="warning" %}
+**This page is for the** [**Cold Sweat: Origins Addendum**](https://www.curseforge.com/minecraft/mc-mods/cold-sweat-origins-addon) **addon mod**
+{% endhint %}
+
 Origins can be configured to give the player custom attribute values via the [Cold Sweat: Origins Addon](https://legacy.curseforge.com/minecraft/mc-mods/cold-sweat-origins-addon) mod. This mod has its own datapack system that works very similarly to Cold Sweat's, but operates independently of Cold Sweat's monolithic datapack loader.
 
 Origins can be customized by creating Origins Modifier files, which store all additional attributes and attribute modifiers that are to be added to the player upon selecting the specified origin.
