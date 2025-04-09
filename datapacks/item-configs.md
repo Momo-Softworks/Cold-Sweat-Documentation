@@ -190,7 +190,7 @@ The format for fuel items is as follows:
   // Negative values indicate cold fuel (hearth only)
   "fuel": -100,
   // Items to be assigned this fuel value
-  // An item requirement (see <a data-footnote-ref href="#user-content-fn-5">Datapack Basics</a>)
+  // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
   "data": {
     "items": [
       "minecraft:slimeball"
@@ -213,7 +213,7 @@ Food items change the entity's body temperature when eaten. They support item re
   "required_mods": [
     "aether"
   ],
-  // An item requirement (see <a data-footnote-ref href="#user-content-fn-6">Datapack Basics</a>)
+  // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
   "data": {
     "items": [
       "minecraft:carrot",
@@ -223,7 +223,7 @@ Food items change the entity's body temperature when eaten. They support item re
   // Positive values increase temperature, negative values decrease
   "value": 20,
   // The entity must be in the overworld for this food to change its temperature
-  // An entity requirement (see <a data-footnote-ref href="#user-content-fn-7">Datapack Basics</a>)
+  // An entity requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
   "entity": {
     "location": {
       "dimension": "minecraft:overworld"
@@ -246,17 +246,17 @@ Items can be configured to affect the player's temperature when being carried in
   "required_mods": [
     "twilightforest"
   ],
-  // An item requirement (see <a data-footnote-ref href="#user-content-fn-8">Datapack Basics</a>)
-  "data": {
+  // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
+  "item": {
     "items": [
       "minecraft:lava_bucket"
     ]
   },
   // slot name, or range of slot IDs
-  // Slot names: mainhand, offhand, feet, legs, chest, head
+  // Slot names: hand, feet, legs, chest, head
   "slots": [
-    "mainhand",
-    "offhand",
+    "hand",
+    // hotbar slots
     {
       "min": 36,
       "max": 44
@@ -265,11 +265,11 @@ Items can be configured to affect the player's temperature when being carried in
   // The temperature of the item. 
   // This value is added for every matching instance of the item
   "temperature": 0.5,
-  // The temperature trait that this item will modify (see <a data-footnote-ref href="#user-content-fn-9">Attributes</a>)
+  // The temperature trait that this item will modify (see <a data-footnote-ref href="#user-content-fn-3">Attributes</a>)
   "trait": "world",
   // Limits the temperature change this item can cause, even when stacking
   "max_effect": 4,
-  // An entity requirement (see <a data-footnote-ref href="#user-content-fn-10">Datapack Basic</a>)
+  // An entity requirement (see <a data-footnote-ref href="#user-content-fn-2">Datapack Basic</a>)
   "entity": {}
 }
 </code></pre>
@@ -281,15 +281,3 @@ Items can be configured to affect the player's temperature when being carried in
 [^3]: [https://mikul.gitbook.io/cold-sweat/attributes#list-of-attributes](https://mikul.gitbook.io/cold-sweat/attributes#list-of-attributes)
 
 [^4]: [https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers](https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers)
-
-[^5]: [https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements](https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements)
-
-[^6]: [https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements](https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements)
-
-[^7]: [https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements](https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements)
-
-[^8]: [https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements](https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements)
-
-[^9]: [https://mikul.gitbook.io/cold-sweat/attributes#list-of-attributes](https://mikul.gitbook.io/cold-sweat/attributes#list-of-attributes)
-
-[^10]: [https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#entity-requirements](https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#entity-requirements)
