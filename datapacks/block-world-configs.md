@@ -25,9 +25,17 @@ You might be familiar with BlockTemps from [previous sections](https://mikul.git
 ### Format
 
 <pre class="language-json"><code class="lang-json">{
-  "blocks": [
-    "#minecraft:all_signs"
-  ],
+  // A negatable list or single <a data-footnote-ref href="#user-content-fn-1">block requirement</a>
+  "block": {
+    "blocks": [
+      "#minecraft:all_signs"
+    ],
+    "nbt": {
+      "front_text": {
+        "has_glowing_text": true
+      } 
+    }
+  }
   // The temperature of the block, in MC units
   "temperature": 0.5,
   // The maximum temperature change that this BlockTemp can cause
@@ -36,23 +44,7 @@ You might be familiar with BlockTemps from [previous sections](https://mikul.git
   // Flag that causes the effect of the block to fade with range. Defaults to true
   "fade": true,
   // The radius of the block's area-of-effect
-  "range": 7,
-  // List of <a data-footnote-ref href="#user-content-fn-1">block requirements</a>
-  "conditions": [
-    // The sign must have glowing text on its front face
-    {
-      "nbt": {
-        "front_text": {
-          "has_glowing_text": true
-        } 
-      }
-    },
-    // The sign must not have a sturdy face on top
-    {
-      "has_sturdy_face": "up",
-      "negate": true
-    }
-  ]
+  "range": 7
 }
 </code></pre>
 
@@ -287,4 +279,4 @@ Finally, we can look at the full formatting for a temperature region file:
 
 
 
-[^1]: [https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#block-requirements](https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#block-requirements)
+[^1]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/block-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/block-requirement)

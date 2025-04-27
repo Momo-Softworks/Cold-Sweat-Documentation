@@ -7,7 +7,7 @@ An item requirement is a set of criteria that an item must meet. They currently 
 * durability
 * enchantments (including enchanted books)
 * potion type (for potion items)
-* nbt
+* nbt (1.20-) or components (1.21+)
 
 These are modeled after Vanilla's item predicates, and are structured like so:
 
@@ -48,7 +48,7 @@ These are modeled after Vanilla's item predicates, and are structured like so:
   },
   // The item must be a lengthened fire resistance potion
   "potion": "minecraft:long_fire_resistance",
-  // The item must have these NBT tags
+  // (1.20-) The item must have these NBT tags
   "nbt": {
     "SomeTag": true,
     "SomeOtherTag": "1-10"
@@ -57,6 +57,11 @@ These are modeled after Vanilla's item predicates, and are structured like so:
       "ThisTagValue": 42,
       "ThisTagName": "Ramphord Yortold"
     }
+  },
+  // (1.21+) The item must have these components
+  "components": {
+    // Item has between 1 and 50 durability lost
+    "minecraft:damage": "1-50"
   }
 <strong>}
 </strong></code></pre>
