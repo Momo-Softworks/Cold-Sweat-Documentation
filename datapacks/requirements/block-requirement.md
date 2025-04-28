@@ -18,15 +18,19 @@ Example:
     "minecraft:oak_planks",
     "#minecraft:wool"
   ],
-  // List of blockstate checks (boolean, int, int range, or enum)
+  // List of blockstate checks (boolean, int, int range, enum, or list of enums)
   "state": {
     "lit": true,
+    "age": 3,
     "power": {
       "min": 1,
       "max": 3
     },
-    "facing": "north",
-    "age": 3
+    "type": "lower",
+    "facing": [
+      "north",
+      "south"
+    ]
   },
   // If the block is a tile entity, it must have NBT that matches this reqirement
   // This section does nothing for normal blocks
