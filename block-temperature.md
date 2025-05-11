@@ -47,7 +47,13 @@ These must be added via 3rd party Forge mods. Because they are programmed in Jav
 
 ### Creating a BlockTemp
 
-A BlockTemp extends the base class **`BlockTemp`**, which has several methods that control how the block(s) temperature works. The <mark style="color:purple;">**`getTemperature()`**</mark> method must be overridden for implementations:
+A BlockTemp extends the base class **`BlockTemp`** , which has several useful fields in its constructor:
+
+* minEffect:&#x20;
+
+
+
+which has several methods that control how the block(s) temperature works. The <mark style="color:purple;">**`getTemperature()`**</mark> method must be overridden for implementations:
 
 <pre class="language-java" data-full-width="false"><code class="lang-java"><strong>@Override
 </strong><strong>public double getTemperature(Level level, LivingEntity entity, 
@@ -59,11 +65,7 @@ A BlockTemp extends the base class **`BlockTemp`**, which has several methods th
 * <mark style="color:blue;">`entity`</mark>: The entity that this BlockTemp is trying to affect.
 * <mark style="color:blue;">`state`</mark>: The BlockState of the block associated with this BlockTemp. This can be used to make the effect conditional, such as when a furnace is lit. One might want to use <mark style="color:yellow;">**`hasBlock()`**</mark> to determine if the given block is valid for this BlockTemp to ensure this temperature isn't applied to the wrong block.
 * <mark style="color:blue;">`pos`</mark>: The BlockPos, or x/y/z position, of the block associated with this BlockTemp.
-*   <mark style="color:blue;">`distance`</mark>: The distance of the entity from the center of the block. This can be used to make the effect of the block weaken as distance increases, since **this does not happen by default**. A common way to calculate this is:
-
-    ```
-    CSMath.blend(<temperature>, 0, distance, 0.5, <range of the block>);
-    ```
+* <mark style="color:blue;">`distance`</mark>: The distance of the entity from the center of the block. Temperature automatically fades with distance if the `fade` field is true.
 
 Returns a double representing the temperature of this block relative to the given player. Note that this value is in Minecraft units.
 
