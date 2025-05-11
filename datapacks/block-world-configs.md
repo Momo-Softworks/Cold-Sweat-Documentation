@@ -168,7 +168,7 @@ The `"temperature"` field also has a few optional properties:
 "top": {
   "temperature": {
     // Either "midpoint" or "static"
-    // "midpoint" is the average of the min/max habitable temperature
+    // "midpoint" is the average of the world's min/max habitable temperature
     // "static" is normal
     // optional, defaults to "static"
     "type": "midpoint",
@@ -178,8 +178,18 @@ The `"temperature"` field also has a few optional properties:
     // Ranges from 0 to 1
     // at 1, the temperature is fixed to the given value 
     // at 0, passes through the biome's temperature
+    // values in-between will partially apply the temperature
     "strength": 0.5 
   }
+}
+```
+
+It can also just be an integer, which defaults to `"static"` with a strength of 1:
+
+```json
+
+"top": {
+  "temperature": 10
 }
 ```
 
@@ -269,7 +279,10 @@ Finally, we can look at the full formatting for a temperature region file:
       "bottom": {
         "anchor": "world_bottom",
         "depth": 0,
-        "temperature": 110,
+        "temperature": {
+          "value": 110,
+          "strength": 1
+        },
         "units": "f"
       }
     }
