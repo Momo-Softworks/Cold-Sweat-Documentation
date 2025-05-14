@@ -6,7 +6,9 @@ Cold Sweat has a special type of config that allows for the "removal" of certain
 
 Registry removals can target TOML, JSON, and KubeJS registries.
 
-It should be noted that registry removals do not actually remove the configuration settings. They prevent them from being applied in the final stage of the config loading process.
+{% hint style="info" %}
+N**ote:** Registry removals do not actually remove the configuration settings. They prevent them from being applied at the final stage of the config loading process.
+{% endhint %}
 
 ### Format
 

@@ -108,7 +108,7 @@ Given all of this information, we can take a look at an example insulation item:
     "cold": 4
   },
   // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
-  "data": {
+  "item": {
     // A list of items that will have this insulation. 
     // Also accepts tags (prefixed with #)
     "items": [

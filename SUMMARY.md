@@ -22,6 +22,7 @@
   * [Block Requirement](datapacks/requirements/block-requirement.md)
   * [NBT Requirement](datapacks/requirements/nbt-requirement.md)
   * [Components Requirement](datapacks/requirements/components-requirement.md)
+  * [Location Requirement](datapacks/requirements/location-requirement.md)
 * [Item Configs](datapacks/item-configs.md)
 * [Block/World Configs](datapacks/block-world-configs.md)
 * [Entity Configs](datapacks/entity-configs.md)

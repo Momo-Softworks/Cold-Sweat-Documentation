@@ -55,8 +55,7 @@ These are modeled after Vanilla's entity predicates, and are structured like so:
 
 ## Format
 
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   // The entities or entity tags
   "entities": [
     "minecraft:polar_bear",
@@ -128,7 +127,7 @@ These are modeled after Vanilla's entity predicates, and are structured like so:
       }
     ]
   },
-  // Checks the entity's NBT
+  // Checks the entity's NBT (<a data-footnote-ref href="#user-content-fn-1">NBT requirement</a>)
   "nbt": {
     "SomeTag": true,
     "SomeOtherTag": "1-10",
@@ -148,7 +147,7 @@ These are modeled after Vanilla's entity predicates, and are structured like so:
     "is_glowing": false,
     "is_baby": true
   },
-  // Checks the entity's equipment
+  // Checks the entity's equipment (these are all <a data-footnote-ref href="#user-content-fn-2">item requirements</a>)
   "equipment": {
     "head": {
       "items": [
@@ -215,7 +214,7 @@ These are modeled after Vanilla's entity predicates, and are structured like so:
     }
   }
 }
-```
+</code></pre>
 
 ## Type-Specific Data
 
@@ -401,3 +400,8 @@ For slimes, the `type_data` field should be an object with a single field named 
 
 ### Snow Boots
 
+
+
+[^1]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/nbt-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/nbt-requirement)
+
+[^2]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/item-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/item-requirement)

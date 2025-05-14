@@ -34,3 +34,36 @@ Adds entities to the pool of entities that can spawn in given biomes. This setti
   "category": "creature"
 }
 ```
+
+## Entity Temperature
+
+`/entity/entity_temperature/`
+
+Allows entities to emit temperature, optionally under certain conditions. This temperature can affect nearby entities or players, as well as (optionally) the target entity itself.&#x20;
+
+Below is a slightly modified version of the temperature emitted when an entity is on fire:
+
+### Format
+
+<pre class="language-json"><code class="lang-json">{
+  "required_mods": [
+    // none
+  ],
+  // <a data-footnote-ref href="#user-content-fn-1">Entity requirement</a>. Entity must be on fire
+  "entity": {
+    "flags": {
+      "is_on_fire": true
+    }
+  },
+  // Temperature to emit. This is added to the world temperature of nearby entities
+  "temperature": 15.0,
+  // Temperature units to use ("f", "c", "mc")
+  "units": "f",
+  // Range of effect (weakens as distance from emitting entity reaches this value)
+  "range": 6.0,
+  // Should temperature also increase for emitting entity?
+  "affects_self": true
+}
+</code></pre>
+
+[^1]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement)
