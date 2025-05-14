@@ -191,7 +191,7 @@ The format for fuel items is as follows:
   "fuel": -100,
   // Items to be assigned this fuel value
   // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
-  "data": {
+  "item": {
     "items": [
       "minecraft:slimeball"
     ]
@@ -214,7 +214,7 @@ Food items change the entity's body temperature when eaten. They support item re
     "aether"
   ],
   // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
-  "data": {
+  "item": {
     "items": [
       "minecraft:carrot",
       "#minecraft:piglin_food"
