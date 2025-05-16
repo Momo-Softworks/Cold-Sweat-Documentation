@@ -22,7 +22,7 @@ There are 3 insulation slot types that determine how the insulation item is used
 * <mark style="color:blue;">`armor`</mark> : An armor item that provides insulation directly when worn
 * <mark style="color:blue;">`curio`</mark> : Exclusive to items that can be worn as curios via the Curios mod
 
-The slot type is simply represented by a string in the config, i.e. `"slot": "armor"`
+The slot type is simply represented by a string, i.e. `"slot": "armor"`
 
 
 
@@ -53,7 +53,7 @@ For adaptive insulation items:
 }
 ```
 
-`adapt_speed` controls the rate at which the insulation item adapts to the entity's environment. This value is added/subtracted every tick in a range between -1 (full cold) and 1 (full heat).
+`adapt_speed` controls the rate at which the insulation item adapts to the entity's environment. This value is added/subtracted to a "factor" every tick that ranges between -1 (fully cold) and 1 (fully heat).
 
 
 
@@ -67,7 +67,7 @@ Attribute modifiers are added to insulation items like so:
   [
     {
       "name": "super awesome modifier",
-      "amount": 0.75,
+      "amount": 0.25,
       "operation": "addition"
     },
     {
@@ -87,7 +87,7 @@ Attribute modifiers are added to insulation items like so:
 }
 ```
 
-For more info on how attribute modifiers work, see [here](https://minecraft.wiki/w/Attribute#Modifiers).
+For more info on how attribute modifiers work, see [the Minecraft wiki](https://minecraft.wiki/w/Attribute#Modifiers).
 
 
 
@@ -168,9 +168,10 @@ The above example does the following:
 
 * Checks if both Thirst Was Taken and Create are loaded
 * Gives 6 heat insulation and 4 cold insulation when worn in armor slots
-* Applies to iron chestplates, or any helmet, enchanted with protection 1 or 2
+* Applies to the iron chestplate, or any helmet, that is enchanted with protection 1 or 2
 * Only works if the entity is standing on an iron block and holding a stick
 * Increases the player's walking speed by 0.3 blocks per tick when worn
+* Reduces block temperature effects by 50% and season temperature effects by 100%
 
 
 
@@ -246,7 +247,7 @@ Items can be configured to affect the player's temperature when being carried in
   "required_mods": [
     "twilightforest"
   ],
-  // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
+  // An <a data-footnote-ref href="#user-content-fn-5">item requirement</a> that the item must meet to emit temperature
   "item": {
     "items": [
       "minecraft:lava_bucket"
@@ -269,10 +270,50 @@ Items can be configured to affect the player's temperature when being carried in
   "trait": "world",
   // Limits the temperature change this item can cause, even when stacking
   "max_effect": 4,
-  // An entity requirement (see <a data-footnote-ref href="#user-content-fn-2">Datapack Basic</a>)
+  // An <a data-footnote-ref href="#user-content-fn-6">entity requirement</a> that the entity must meet to be affected
   "entity": {}
 }
 </code></pre>
+
+
+
+## Drying Items
+
+`/item/drying_item/`
+
+"Drying items" are items that can be used to dry the player off when right-clicked.
+
+### Format
+
+```json
+{
+  "required_mods": [
+    // nothing!
+  ],
+  // An item requirement that the item must meet to be usable
+  "item": {
+    "items": [
+      "minecraft:sponge"
+    ]
+  },
+  "result": {
+    "id": "minecraft:wet_sponge",
+    "tag": {
+      "Display": {
+        "Name": "{\"text\":\"I Am a Wet Sponge\",\"color\":\"blue\"}"
+      }
+    }
+  },
+  // An entity requirement that the entity must meet in order to use the item
+  "entity": {
+    "entities": [
+      "minecraft:player"
+    ]
+  },
+  // Sound that is played upon using the item
+  "sound": "minecraft:block.wet_grass.step"
+}
+```
 
 [^1]: [https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements](https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements)
 
@@ -281,3 +322,7 @@ Items can be configured to affect the player's temperature when being carried in
 [^3]: [https://mikul.gitbook.io/cold-sweat/attributes#list-of-attributes](https://mikul.gitbook.io/cold-sweat/attributes#list-of-attributes)
 
 [^4]: [https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers](https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers)
+
+[^5]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/item-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement)
+
+[^6]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement)
