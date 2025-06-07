@@ -6,7 +6,7 @@ description: Index of registry methods for Cold Sweat's KubeJS integration
 
 [Block Temperature](block-temperature.md)
 
-[Insulators](block-temperature-1.md)
+[Insulators](insulators.md)
 
 Food Temperature
 

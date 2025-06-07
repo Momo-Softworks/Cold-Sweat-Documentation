@@ -33,7 +33,7 @@
 * [KubeJS Basics](kubejs/kubejs-basics.md)
 * [Registries](kubejs/registries/README.md)
   * [Block Temperature](kubejs/registries/block-temperature.md)
-  * [Insulators](kubejs/registries/block-temperature-1.md)
+  * [Insulators](kubejs/registries/insulators.md)
 
 ## Add-Ons
 
