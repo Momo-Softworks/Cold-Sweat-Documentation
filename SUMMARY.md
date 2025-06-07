@@ -34,6 +34,8 @@
 * [Registries](kubejs/registries/README.md)
   * [Block Temperature](kubejs/registries/block-temperature.md)
   * [Insulators](kubejs/registries/insulators.md)
+  * [Food Temperature](kubejs/registries/food-temperature.md)
+  * [Fuels](kubejs/registries/fuels.md)
 
 ## Add-Ons
 

@@ -8,9 +8,9 @@ description: Index of registry methods for Cold Sweat's KubeJS integration
 
 [Insulators](insulators.md)
 
-Food Temperature
+[Food Temperature](food-temperature.md)
 
-Fuel Items
+[Fuel Items](fuels.md)
 
 Carried Item Temperature
 

@@ -10,7 +10,7 @@ ColdSweatEvents.registries(event =>
     // Builder-style insulator definition
     event.addInsulator(insulator =>
         // Registers the insulator to these items
-        blockTemp.blocks("minecraft:ink_sac", "#minecraft:dye")
+        insulator.items("minecraft:ink_sac", "#minecraft:dye")
                  // Insulation that the item provides (cold, heat)
                  .insulation(2, 2)
                  // Adaptive insulation that the item provides (insulation, adaptSpeed)
