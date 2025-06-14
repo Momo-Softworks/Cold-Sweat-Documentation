@@ -8,10 +8,13 @@ description: A list of all default TempModifiers and their functions
 Detects nearby blocks and determines how they affect the player's temperature. See [Block Temperature](block-temperature.md) for more info.
 
 <mark style="color:blue;">`cold_sweat:biomes`</mark>\
-Detects the temperature of nearby biomes, taking into account altitude, time of day, and humidity, and applies it to the player.
+Handles the temperature of nearby biomes, taking into account altitude, time of day, and humidity, and applies it to the player. Does not handle cave biomes.
 
-<mark style="color:blue;">`cold_sweat:underground`</mark>\
-Handles temperature changes according to the player's depth underground. Also detects underground biomes and applies their temperature to the player if applicable.
+<mark style="color:blue;">`cold_sweat:elevation`</mark>\
+Handles temperature changes according to the player's elevation in the world. By default, it is cold high above the ground and heats up near bedrock.
+
+<mark style="color:blue;">`cold_sweat:cave_biomes`</mark>\
+Handles the temperature of cave biomes around the player underground.&#x20;
 
 <mark style="color:blue;">`cold_sweat:armor`</mark> \
 Handles armor insulation.
@@ -28,11 +31,17 @@ Handles the cooling effect applied by the Soulspring Lamp item.
 <mark style="color:blue;">`cold_sweat:water`</mark> \
 Handles the cooling effect of water and rain, as well as the dripping particles when the player is wet.
 
-<mark style="color:blue;">`cold_sweat:air_conditioning`</mark> \
-Handles the warming/cooling provided by the Warmth and Chill effects, given by the hearth, boiler, and icebox.
+<mark style="color:blue;">`cold_sweat:warming`</mark> \
+Handles the temperature increase provided by the Warmth effect.
+
+<mark style="color:blue;">`cold_sweat:cooling`</mark> \
+Handles the temperature decrease provided by the Frigidness effect.
 
 <mark style="color:blue;">`cold_sweat:food`</mark> \
 Handles temperature changes applied by eating configured food items.
+
+<mark style="color:blue;">`cold_sweat:soul_sprout`</mark> (extension of `cold_sweat:food`)\
+Handles the effect of eating a Soul Sprout specifically. Spawns soul particles around the player while it is active.
 
 <mark style="color:blue;">`cold_sweat:freezing`</mark> \
 Handles the chilling effect of the entity standing in powder snow.
@@ -40,17 +49,20 @@ Handles the chilling effect of the entity standing in powder snow.
 <mark style="color:blue;">`cold_sweat:on_fire`</mark> \
 Handles the heating effect of the entity being on fire.
 
-<mark style="color:blue;">`cold_sweat:soul_sprout`</mark> (extension of `cold_sweat:food`)\
-Handles the effect of eating a Soul Sprout item. Also spawns soul particles for the duration of the Soul Sprout's effect.
-
 <mark style="color:blue;">`cold_sweat:inventory_items`</mark> \
 Handles temperature changes applied by items in an entity's inventory.
 
 <mark style="color:blue;">`cold_sweat:entities`</mark> \
 Handles the effect of nearby temperature-emitting entities.
 
+<mark style="color:blue;">`cold_sweat:acclimation`</mark>\
+Changes the player's minimum and maximum habitable temperatures according to the acclimation mechanic.
+
+<mark style="color:blue;">`cold_sweat:climate`</mark>\
+Encompasses all calculations for world temperature that are performed for non-player entities with temperature enabled.
+
 {% hint style="info" %}
-The following TempModifiers are registered automatically if their respective mods are loaded. They are supplied by the Cold Sweat mod for compatibility.
+The following TempModifiers are available only if their respective mods are loaded. They are supplied by the Cold Sweat mod for compatibility.
 {% endhint %}
 
 <mark style="color:blue;">`sereneseasons:season`</mark>\

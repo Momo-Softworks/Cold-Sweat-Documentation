@@ -10,7 +10,7 @@ description: The format of all data-driven JSON configs for entities
 
 Adds entities to the pool of entities that can spawn in given biomes. This setting is meant to mirror the "Goat Spawn Biomes" and "Chameleon Spawn Biomes" settings, but this can technically be used to add any entity to a biome.
 
-### Format
+#### Format
 
 ```json
 {
@@ -35,6 +35,37 @@ Adds entities to the pool of entities that can spawn in given biomes. This setti
 }
 ```
 
+## Insulating Mounts
+
+`/entity/mount/`
+
+Enables entities to provide insulating properties to the player riding them. Can also grant (partial) immunity to certain temperature modifiers.
+
+#### Format
+
+<pre class="language-json"><code class="lang-json">{
+  // An <a data-footnote-ref href="#user-content-fn-1">entity requirement</a> for the mount entity
+  "entity": {
+    "entities": [
+      "minecraft:horse"
+    ]
+  },
+  // An <a data-footnote-ref href="#user-content-fn-1">entity requirement</a> for the player riding the entity
+  "rider": {
+    "team": "blue"
+  },
+  // Amount of cold insulation (0 to 1) 
+  "cold_insulation": 0.5,
+  // Amount of heat insulation (0 to 1)
+  "heat_insulation": 0.75,
+  // Map of temperautre modifier immunities
+  "immune_temp_modifiers": {
+    // 100% immune to water
+    "cold_sweat:water": 1.0
+  }
+}
+</code></pre>
+
 ## Entity Temperature
 
 `/entity/entity_temperature/`
@@ -43,7 +74,7 @@ Allows entities to emit temperature, optionally under certain conditions. This t
 
 Below is a slightly modified version of the temperature emitted when an entity is on fire:
 
-### Format
+#### Format
 
 <pre class="language-json"><code class="lang-json">{
   "required_mods": [
