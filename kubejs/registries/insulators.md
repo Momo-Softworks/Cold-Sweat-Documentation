@@ -30,7 +30,7 @@ ColdSweatEvents.registries(event =>
                  // This can be called multiple times for multiple modifiers
                  // operation types (1.20-): add, multiply_base, multiply_total
                  // operation types (1.21+): add_value, add_multiplied_base, add_multipled_total
-                 .attribute("generic.attack_speed", 1.0, "add")
+                 .attribute("generic.attack_speed", 1.0, "addition")
                  // Adds immunity to a temperature modifier
                  .immuneToModifier("cold_sweat:on_fire", 0.5)
                  // true: items with more than 2 total insulation will take up multiple slots

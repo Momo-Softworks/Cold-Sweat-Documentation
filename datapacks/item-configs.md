@@ -53,7 +53,7 @@ For adaptive insulation items:
 }
 ```
 
-`adapt_speed` controls the rate at which the insulation item adapts to the entity's environment. This value is added/subtracted to a "factor" every tick that ranges between -1 (fully cold) and 1 (fully heat).
+`adapt_speed` sets the amount that the item adapts every tick. Adaptation ranges between -1 (fully cold) and 1 (fully hot).
 
 
 
@@ -63,9 +63,12 @@ Attribute modifiers are added to insulation items like so:
 
 ```json
 "attributes": {
+  // The attribute to apply modifier(s) to
   "cold_sweat:heat_resistance":
   [
     {
+      // The name of the modifier. Can be anything in 1.20 and below
+      // In 1.21+, this has to be in ID format (i.e. cs:my_modifier)
       "name": "super awesome modifier",
       "amount": 0.25,
       "operation": "addition"

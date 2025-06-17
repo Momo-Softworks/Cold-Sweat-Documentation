@@ -28,7 +28,7 @@ Cold Sweat allows for adding temperature properties to items when in the player'
             // Can be called multiple times to add more than one
             // Operations (1.20-): add, multiply_base, multiply_total
             // Operations (1.21+): add, add_multiplied_base, add_multiplied_total
-            .attribute("generic.movement_speed", 0.5, "add")
+            .attribute("generic.movement_speed", 0.5, "addition")
             // Add immunity to a temperature modifier
             // Can be called multiple times to add immunity to more than one modifier
             .immuneToModifier("cold_sweat:water", 1.0)
