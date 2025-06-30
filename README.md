@@ -8,30 +8,30 @@ description: The essentials of how temperature works
 
 There are several types of temperature that affect entities in differing ways. Every entity has a separate instance of all of these temperature traits.
 
-* `world`: The ambient temperature that the entity experiences\
+* <mark style="color:blue;">`world`</mark>: The ambient temperature that the entity experiences\
   **Range: -∞ → ∞**
-* `core`: The entity's core temperature. This is the main component of the entity's body temperature. \
+* <mark style="color:blue;">`core`</mark>: The entity's core temperature. This is the main component of the entity's body temperature. \
   **Does not support attribute modifiers.**\
   **Range: -150 → 150**
-* `base`: An offset applied on top of the entity's core temperature, i.e. when eating a soul sprout.\
+* <mark style="color:blue;">`base`</mark>: An offset applied on top of the entity's core temperature, i.e. when eating a soul sprout.\
   **Range: -150 → 150**
-* `body`: Represents the entity's core and base traits added together. \
+* <mark style="color:blue;">`body`</mark>: Represents the entity's core and base traits added together. \
   **This trait can be read, but not assigned.**\
   **Does not support temperature modifiers or attribute modifiers.**\
   **Range: -150 → 150**
-* `rate`: The entity's current rate of overheating (positive) or freezing (negative).\
+* <mark style="color:blue;">`rate`</mark>: The entity's current rate of overheating (positive) or freezing (negative).\
   **Range: -∞ → ∞**
-* `freezing_point`: The temperature at which the entity will start to freeze.\
+* <mark style="color:blue;">`freezing_point`</mark>: The temperature at which the entity will start to freeze.\
   **Range: -∞ → ∞**
-* `burning_point:` The temperature at which the entity will start to overheat.\
+* <mark style="color:blue;">`burning_point`</mark>: The temperature at which the entity will start to overheat.\
   **Range: -∞ → ∞**
-* `cold_resistance`: Resistance to damage taken from freezing.\
+* <mark style="color:blue;">`cold_resistance`</mark>: Resistance to damage taken from freezing.\
   **Range: 0.0 → 1.0**
-* heat\_resistance: Resistance to damage taken from overheating.\
+* <mark style="color:blue;">`heat_resistance`</mark>: Resistance to damage taken from overheating.\
   **Range: 0.0 → 1.0**
-* `cold_dampening`: Controls the rate at which the player freezes. Positive values decrease the rate; negative values increase it.\
+* <mark style="color:blue;">`cold_dampening`</mark>: Controls the rate at which the player freezes. Positive values decrease the rate; negative values increase it.\
   **Range: -∞ → 1.0**
-* `heat_dampening`: Controls the rate at which the player overheats. Positive values decrease the rate; negative values increase it.\
+* <mark style="color:blue;">`heat_dampening`</mark>: Controls the rate at which the player overheats. Positive values decrease the rate; negative values increase it.\
   **Range: -∞ → 1.0**
 
 ***
