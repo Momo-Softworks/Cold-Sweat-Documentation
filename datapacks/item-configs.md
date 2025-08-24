@@ -249,9 +249,9 @@ Food items change the entity's body temperature when eaten. They support item re
 
 ## Inventory Items
 
-`/item/carried_temp/`
+`/item/item_temp/`
 
-Items can be configured to affect the player's temperature when being carried in their inventory. This system can check any inventory slots, including armor slots.
+Items can be configured to affect the player's temperature when being carried in their inventory. This system can check any inventory slots, including armor slots and [curios](https://www.curseforge.com/minecraft/mc-mods/curios).
 
 ### Format
 
@@ -275,10 +275,9 @@ Items can be configured to affect the player's temperature when being carried in
       "max": 44
     }
   ],
-  // The temperature of the item. 
-  // This value is added for every matching instance of the item
+  // The temperature of the item
   "temperature": 0.5,
-  // The temperature trait that this item will modify (see <a data-footnote-ref href="#user-content-fn-3">Attributes</a>)
+  // The temperature trait that this item will apply to (see <a data-footnote-ref href="#user-content-fn-3">Attributes</a>)
   "trait": "world",
   // Limits the temperature change this item can cause, even when stacking
   "max_effect": 4,
