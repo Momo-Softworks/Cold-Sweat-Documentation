@@ -22,7 +22,7 @@ An instance of `RegistryAccess` can be retrieved from any <mark style="color:blu
 RegistryHelper.getRegistryAccess()
 ```
 
-Using this method is generally discouraged, as it uses potentially unstable methods of retrieving a `MinecraftServer` or `Level` object from a static context. Only use if there is no alternative and you know what you are doing.
+Using this method is generally discouraged, as it uses potentially unreliable methods of retrieving an instance of  `RegistryAccess` from a static context. Only use this if there is no alternative and you know what you are doing.
 
 {% hint style="warning" %}
 `RegistryAccess` is only reliably present after the integrated server has loaded. Attempting to retrieve it before this point could result in `null`.
