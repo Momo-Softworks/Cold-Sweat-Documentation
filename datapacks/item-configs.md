@@ -68,14 +68,14 @@ Attribute modifiers are added to insulation items like so:
   [
     {
       // The name of the modifier. Can be anything in 1.20 and below
-      // In 1.21+, this has to be in ID format (i.e. cs:my_modifier)
+      // In 1.21+, this has to be in ID format (i.e. mymod:super_awesome_modifier)
       "name": "super awesome modifier",
       "amount": 0.25,
       "operation": "addition"
     },
     {
       "name": "even better one",
-      "amount": 0.25,
+      "amount": 0.5,
       "operation": "addition"
     }
   ]
@@ -90,9 +90,18 @@ Attribute modifiers are added to insulation items like so:
 }
 ```
 
-For more info on how attribute modifiers work, see [the Minecraft wiki](https://minecraft.wiki/w/Attribute#Modifiers).
+**Operation Types:**
+
+* **1.20-** \
+  `add`, `multiply_base`, `multiply_total`
+* **1.21+**\
+  `add_value`, `add_multiplied_base`, `add_multiplied_total`
+
+<h4 align="center">For more info on how attribute modifiers work, see <a href="https://minecraft.wiki/w/Attribute#Modifiers">the Minecraft wiki</a>.</h4>
 
 
+
+#### Final Example
 
 Given all of this information, we can take a look at an example insulation item:
 
