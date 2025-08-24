@@ -36,7 +36,11 @@ This section contains some miscellaneous information about various aspects of Co
 
 All JSON configs in Cold Sweat have a "required mods" field that allows for configs to be conditionally loaded depending on what mods are present in the current instance. If any of the required mods aren't met, the config is fully prevented from being parsed, at the first step of the loading process.
 
-This can be useful if the config contains IDs for items, blocks, etc. that belong to a particular mod and thus won't exist if the mod is not present. **Not including the proper required mods will allow Minecraft to parse the file, and the missing data will likely cause Minecraft's data loading process to fail entirely.**&#x20;
+This can be useful if the config contains IDs for items, blocks, etc. that belong to a particular mod that might not be present.&#x20;
+
+{% hint style="warning" %}
+If the JSON contains mod-specific data and the mod(s) are not added to `required_mods`, Minecraft will attempt to parse the file anyway, and the missing data will **likely cause Minecraft's data loading process to fail entirely**.&#x20;
+{% endhint %}
 
 The format for required mods is very simple:
 
@@ -69,7 +73,13 @@ Required mods can also use a negatable list, allowing conditions to be inverted,
 
 ### Negatable List
 
-A negatable list is a collection of **requirements** and **exclusions** that can be used in place of most conditional parameters in Cold Sweat. These can be used to define inverted conditions, which pass if the check returns false. Here is the basic format:
+A negatable list is a collection of **requirements** and **exclusions** that can be used in place of most conditional parameters in Cold Sweat. Using them, it is possible to perform multiple checks at once, or utilize exclusions to define conditions in which the check should fail.
+
+{% hint style="info" %}
+Fields that support negatable lists will usually be labeled as such, but it is safe to assume that any "requirement" (item, entity, block, NBT, etc.) is probably negatable.
+{% endhint %}
+
+Minimal example:
 
 ```json
 {
@@ -77,7 +87,7 @@ A negatable list is a collection of **requirements** and **exclusions** that can
     // A list of checks that must pass for this requirement to succeed
   ],
   "exclude": [
-    // A list of checks that must FAIL for this requirement to succeed
+    // A list of checks that FAIL this requirement if they pass
   ]
 }
 ```
@@ -87,7 +97,7 @@ For example, here is a negatable list of entity requirements:
 ```json
 {
   "entity": {
-    // -- Requirements
+    // -- Requirements --
     "require": [
       // requirement 1: must be on fire and have some NBT data
       {
@@ -102,12 +112,12 @@ For example, here is a negatable list of entity requirements:
       {
         "effects": {
           "minecraft:regeneration": {
-            "amplifier": 1,
+            "amplifier": 1
           }
         }
       }
     ],
-    // -- Exclusions
+    // -- Exclusions --
     "exclude": [
       {
         // exclusion: can't be wearing an iron helmet
@@ -124,28 +134,32 @@ For example, here is a negatable list of entity requirements:
 }
 ```
 
-For reference, this is what a singular entity requirement would look like in this context:
+#### Optional Parameters
+
+By default, a negatable list of requirements will succeed if:
+
+* At least one requirement passes
+* None of the exclusions pass
+
+However, it is possible to change this behavior using two optional parameters:
+
+* **`require_all`**\
+  ALL requirements must pass for the list to succeed. If one requirement does not pass, the entire list will fail and exclusions will be skipped.
+* **`exclude_all`**\
+  ALL exclusions must pass for the list to fail. If one exclusion does not pass, the rest of the exclusions will be ignored.
 
 ```json
 {
-  // the name of the entity requirement parameter in some config
-  "entity": 
-  // The actual entity requirement. This is what's substituted for the negatable list
-  {
-    "flags": {
-      "on_fire": true
-    },
-    "nbt": {
-      "SomeBooleanTag": 1
-    }
-  }
+  "requirements": [], // List of requirements
+  "require_all": true,
+  "exclusions": [], // List of exclusions
+  "exclude_all": true
+  // Both of these parameters are "false" by default
 }
 ```
 
-Fields that support negatable lists will usually be labeled as such, but it is safe to assume that any "requirement" (item, entity, block, etc.) is probably negatable.
-
 ### Default Configs
 
-The file names of some JSON configs that are in Cold Sweat by default start with the word "default". This makes them have lower priority in the config loading process, so other configs can override them. For example, the default [temp region](block-world-configs.md#temperature-regions) file uses this so user-defined temp regions will always have priority.
+The file names of some of Cold Sweat's default JSON configs start with the word "default". This makes them have the lowest possible priority in the config loading process, so other configs can override them. For example, the default [temp region](block-world-configs.md#temperature-regions) file uses this so that user-defined temp regions will always have priority.
 
-**Prefixing your own configs with "default" will have the same effect, so it's typically not advisable to do this unless that's your intention**. Note that some configs support stacking multiple configs, such as those for insulation. For them, this rule does not apply.
+**Prefixing your own configs with "default" will have the same effect, so it's typically not advisable to do this unless that's your intention**. Note that many configs support stacking multiple entries, such as those for insulation. For them, this mechanic does not apply.
