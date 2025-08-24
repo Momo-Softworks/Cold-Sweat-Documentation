@@ -33,17 +33,26 @@ If HeatLevel matches either of the given values, the check will pass. This is a 
 
 ## Numerical Ranges
 
-It is also possible to define a range of accepted values if the tag being checked is a number.&#x20;
+It is possible to define a range of accepted values if the tag being checked is a number.&#x20;
 
 Example:
 
 ```json
 "nbt": {
-  "Damage": "50-100"
+  "Damage": "50:100"
 } 
 ```
 
-Checks if an item's damage is somewhere between 50 and 100. Note that ranges are represented by a string value of two numbers separated by a hyphen ( - ). Decimal values are also accepted.
+Checks if an item has lost between 50 and 100 durability. Note that ranges are represented by a string value of two numbers separated by a colon ( : ). Decimal values are also accepted.
+
+It is also possible to omit the lower or upper limit. For example:
+
+```json
+"nbt": {
+  "Damage": "50:", // Checks if "Damage" is 50 or more
+  "Variable": ":-10" // Checks if "Variable" is -10 or less
+} 
+```
 
 ## List Contents
 
