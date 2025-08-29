@@ -16,7 +16,7 @@ Example:
 {
   "components": {
     "minecraft:damage": 10,
-    "minecraft:custom_name": 
+    "minecraft:custom_name": ""
   }
 }
 ```

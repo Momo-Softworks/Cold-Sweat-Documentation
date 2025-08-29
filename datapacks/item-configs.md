@@ -247,7 +247,7 @@ Food items change the entity's body temperature when eaten. They support item re
 
 
 
-## Inventory Items
+## Item Temperature
 
 `/item/item_temp/`
 
@@ -266,14 +266,16 @@ Items can be configured to affect the player's temperature when being carried in
     ]
   },
   // slot name, or range of slot IDs
-  // Slot names: hand, feet, legs, chest, head
+  // Slot names: hand, hotbar, inventory, curio, feet, legs, chest, head
   "slots": [
     "hand",
-    // hotbar slots
+    "hotbar",
+    // top row of inventory
     {
-      "min": 36,
-      "max": 44
-    }
+      "min": 9,
+      "max": 17
+    },
+    27 // bottom-left slot of inventory
   ],
   // The temperature of the item
   "temperature": 0.5,
@@ -307,6 +309,7 @@ Items can be configured to affect the player's temperature when being carried in
       "minecraft:sponge"
     ]
   },
+  // An item stack
   "result": {
     "id": "minecraft:wet_sponge",
     "tag": {
