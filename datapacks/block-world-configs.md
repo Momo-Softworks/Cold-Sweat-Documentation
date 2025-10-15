@@ -121,7 +121,7 @@ Dimension temperature configs apply to an entire dimension, overriding all biome
   // The dimension's temperature at midnight. "is_offset" makes this an offset
   "min_temp": -10,
   // The dimension's temperature at noon. "is_offset" makes this an offset
-  "max_temp": 20
+  "max_temp": 20,
   // Alternative to min/max_temp. Sets both of them to the same value
   "temperature": 50,
   // The units being used for temperature. This example is in Fahrenheit
