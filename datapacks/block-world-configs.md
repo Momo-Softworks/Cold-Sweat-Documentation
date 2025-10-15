@@ -105,7 +105,7 @@ Luckily, the format for biome temperatures is simpler than most settings:
 
 `/world/dimension_temp/`
 
-Dimension temperature configs are defined in almost exactly the same way as biome temperature. The only difference is that dimension temperatures do not support a min/max ("high/low") temperature, and instead use just one value:
+Dimension temperature configs apply to an entire dimension, overriding all biome temperatures. if `is_offset` is true, the dimension's temperature will be offset instead (in addition to biome temperatures).
 
 ### Format
 
@@ -118,6 +118,11 @@ Dimension temperature configs are defined in almost exactly the same way as biom
     "minecraft:the_nether",
     "#cold_sweat:soulspring_lamp_valid"
   ],
+  // The dimension's temperature at midnight. "is_offset" makes this an offset
+  "min_temp": -10,
+  // The dimension's temperature at noon. "is_offset" makes this an offset
+  "max_temp": 20
+  // Alternative to min/max_temp. Sets both of them to the same value
   "temperature": 50,
   // The units being used for temperature. This example is in Fahrenheit
   // Defaults to MC
