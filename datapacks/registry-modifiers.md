@@ -2,7 +2,7 @@
 
 `/modifier/`
 
-Cold Sweat has a special type of config that allows for the modification of certain other configs. For example, a registry modifier can be used to change the attributes of an insulation item, or to remove a config entirely.
+Cold Sweat has a special type of config that allows for the modification of certain other configs. For example, a registry modifier can be used to change the attributes of an insulation item, or to disable a config entirely.
 
 Registry modifiers can target TOML, JSON, and KubeJS registries.
 
@@ -59,12 +59,39 @@ Disables the target entirely, causing it to not load.
 
 ```json
 {
+  "registry": "cold_sweat:item/food",
   ...
+  "matches": [
+    {
+      "item": {
+        "items": {
+          "require": {
+            "cs:contains_any": [
+              "cold_sweat:soul_sprout"
+            ]
+          }
+        }
+      }
+    }
+  ],
   "operations": [
     {
       "type": "disable"
     }
   ]
+  
+  // Result (the following config is disabled):
+  {
+    "item": {
+      "items": {
+        "require": [
+          "cold_sweat:soul_sprout"
+        ]
+      }
+    },
+    "temperature": -20,
+    "duration": 1200
+  }
 }
 ```
 
