@@ -26,7 +26,7 @@
 * [Item Configs](datapacks/item-configs.md)
 * [Block/World Configs](datapacks/block-world-configs.md)
 * [Entity Configs](datapacks/entity-configs.md)
-* [Registry Removals](datapacks/registry-removals.md)
+* [Registry Modifiers](datapacks/registry-modifiers.md)
 * [Negatable List](datapacks/negatable-list.md)
 
 ## KubeJS
