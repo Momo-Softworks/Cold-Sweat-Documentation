@@ -1,4 +1,4 @@
-# Carried Item Temperature
+# Item Temperature
 
 Cold Sweat allows for adding temperature properties to items when in the player's inventory using KubeJS.
 
@@ -7,10 +7,10 @@ Cold Sweat allows for adding temperature properties to items when in the player'
 <pre class="language-javascript"><code class="lang-javascript">ColdSweatEvents.registries(event =>
 {
     // Builder-style food temperature definition
-    event.addCarriedItemTemperature(carried =>
+    event.addItemTemperature(item =>
         // Registers the food temperature to these items
-        carried.items("minecraft:blaze_powder", "#forge:rods/blaze")
-            // The temperature of the item food
+        item.items("minecraft:blaze_powder", "#forge:rods/blaze")
+            // The temperature of the item
             .temperature(0.5)
             // The temperature trait to affect. Can be any trait
             .trait("world")
@@ -24,12 +24,16 @@ Cold Sweat allows for adding temperature properties to items when in the player'
             .equipmentSlots("inventory", "hand", "curio")
             // The maximum amount that any quantity of this item can affect the player
             .maxEffect(2)
-            // Give the item an attribute modifier when active on the player
-            // Can be called multiple times to add more than one
-            // Operations (1.20-): add, multiply_base, multiply_total
-            // Operations (1.21+): add, add_multiplied_base, add_multiplied_total
+            // Maximum value the specified trait can have before this has no effect
+            .maxTemp(1.57)
+            // Minimum value the specified trait can have before this has no effect
+            .minTemp(0.5)
+            // Give the entity an attribute modifier while carrying this item
+            // Can be called multiple times to add more than one modifier
+            // Operations (1.20-): addition, multiply_base, multiply_total
+            // Operations (1.21+): add_value, add_multiplied_base, add_multiplied_total
             .attribute("generic.movement_speed", 0.5, "addition")
-            // Add immunity to a temperature modifier
+            // Give the entity immunity to a temperature modifier
             // Can be called multiple times to add immunity to more than one modifier
             .immuneToModifier("cold_sweat:water", 1.0)
             // The item must match this predicate to be valid

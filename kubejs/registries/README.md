@@ -12,7 +12,7 @@ description: Index of registry methods for Cold Sweat's KubeJS integration
 
 [Fuel Items](fuel-items.md)
 
-[Carried Item Temperature](carried-item-temperature.md)
+[Carried Item Temperature](item-temperature.md)
 
 Biome Temperature
 

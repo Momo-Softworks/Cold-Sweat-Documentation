@@ -37,7 +37,7 @@
   * [Insulators](kubejs/registries/insulators.md)
   * [Food Temperature](kubejs/registries/food-temperature.md)
   * [Fuel items](kubejs/registries/fuel-items.md)
-  * [Carried Item Temperature](kubejs/registries/carried-item-temperature.md)
+  * [Item Temperature](kubejs/registries/item-temperature.md)
 
 ## Add-Ons
 
