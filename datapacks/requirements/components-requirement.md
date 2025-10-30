@@ -15,8 +15,7 @@ Example:
 ```json
 {
   "components": {
-    "minecraft:damage": 10,
-    "minecraft:custom_name": ""
+    "minecraft:damage": 0:10 // Between 0 and 10 damage
   }
 }
 ```
