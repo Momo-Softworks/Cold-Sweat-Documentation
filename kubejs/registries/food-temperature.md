@@ -15,6 +15,9 @@ ColdSweatEvents.registries(event =>
             .temperature(-20)
             // The duration of the food, in ticks (omit for instant effect)
             .duration(1200)
+            // The maximum number of times this food can be eaten with "stacking" effects
+            // Eating more than this amount will replace the most recent effect in the stack
+            .stackLimit(5)
             // The item must match this predicate to be valid
             .itemPredicate(itemStack => {
                 return itemStack.getCount() < 10
