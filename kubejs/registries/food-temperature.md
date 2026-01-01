@@ -8,7 +8,7 @@ Cold Sweat allows for adding temperature properties to food using KubeJS.
 ColdSweatEvents.registries(event =>
 {
     // Builder-style food temperature definition
-    event.addInsulator(food =>
+    event.addFoodTemperature(food =>
         // Registers the food temperature to these items
         food.items("minecraft:bread", "#minecraft:fishes")
             // The temperature of the food
