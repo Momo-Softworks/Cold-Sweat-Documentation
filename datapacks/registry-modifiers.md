@@ -53,7 +53,7 @@ N**ote:** Registry modifiers do not actually modify the target configuration's s
 
 Each registry modifier can perform one or many operations on the target config. There are five operation types, each affecting the target data in a different way:
 
-#### `disable`
+### `disable`
 
 Disables the target entirely, causing it to not load.
 
@@ -95,7 +95,7 @@ Disables the target entirely, causing it to not load.
 }
 ```
 
-#### `replace`
+### `replace`
 
 Replaces the top-level key of the target, if it exists. The contents of the new data completely replace the old data, which is removed.
 
@@ -165,7 +165,7 @@ Replaces the top-level key of the target, if it exists. The contents of the new 
 }
 ```
 
-#### `merge`
+### `merge`
 
 Merges the given data with that of the target. If two keys are identical, the new data overwrites the existing data.&#x20;
 
@@ -238,7 +238,7 @@ The merge operation also supports performing basic arithmetic on the original va
 * ^= Exponent
 * %= Modulus
 
-#### `append`
+### `append`
 
 Adds the given data to the target, without overwriting or modifying existing data at all. In the case of duplicate keys, the existing data is kept. This operation is "deep", meaning nested data is also appended. This operation does not affect lists.
 
@@ -303,7 +303,7 @@ Adds the given data to the target, without overwriting or modifying existing dat
 }
 ```
 
-#### `remove`
+### `remove`
 
 Removes data from the target. Also supports removing elements from a list.
 
