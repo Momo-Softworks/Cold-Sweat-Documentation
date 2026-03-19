@@ -15,10 +15,10 @@ N**ote:** Registry modifiers do not actually modify the target configuration's s
 ```json
 {
   // The type of config to target
-  // The registry name of each config is given on its respective docs page
+  // The registry name of each config type is given on its respective docs page
   "registry": "cold_sweat:entity/entity_temp",
   // Config formats to check ("toml", "json", "kubejs")
-  // Can also be a single element: "config_type": "json"
+  // Can also be a single element ("config_type": "json")
   "config_type": [
     "json"
   ],
@@ -28,14 +28,14 @@ N**ote:** Registry modifiers do not actually modify the target configuration's s
     "cold_sweat:on_fire"
   ],
   // Any configs matching the given data structure(s) are modified
+  // Optional if "entries" is defined
   // These are NBT requirements, so Cold Sweat's special NBT functions also work here
   "matches": [
     {
-      "flags": {
-        "is_baby": false
-      },
-      "nbt": {
-        "Burning": 1
+      "entity": {
+        "flags": {
+          "is_baby": false
+        }
       }
     },
     {
