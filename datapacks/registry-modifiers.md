@@ -2,9 +2,9 @@
 
 `/modifier/`
 
-Cold Sweat has a special type of config that allows for the modification of certain other configs. For example, a registry modifier can be used to change the attributes of an insulation item, or to disable a config entirely.
+Cold Sweat has a special type of config that allows for the modification of certain other configs. For example, a registry modifier can be used to change the attributes of an insulation item, or to disable a config entirely. Registry modifiers can target TOML, JSON, and KubeJS registries.&#x20;
 
-Registry modifiers can target TOML, JSON, and KubeJS registries.
+The structure of configs when loaded in memory might be different from how they're written in the source file. A collection of all configs as they are in memory can be obtained by running `/coldsweat dumpconfigs`, which creates a directory in the config folder containing all currently loaded configs.
 
 {% hint style="info" %}
 N**ote:** Registry modifiers do not actually modify the target configuration's source. They only modify the data in memory as it is loaded.
@@ -190,9 +190,11 @@ If a list of elements is given, the new list will be combined with the old list.
     {
       "type": "merge",
       "data": {
-        "biomes": [
-          "minecraft:dark_forest"
-        ],
+        "biomes": {
+          "require": [
+            "minecraft:dark_forest"
+          ]
+        },
         "min_temp": 55,
         "max_temp": "*=2", // Multiply value by 2
         "water_temp": 15
@@ -238,7 +240,7 @@ The merge operation also supports performing basic arithmetic on the original va
 
 #### `append`
 
-Adds the given data to the target, without overwriting or modifying existing data at all. This operation is "deep", meaning nested data is also appended. This operation does not affect lists.
+Adds the given data to the target, without overwriting or modifying existing data at all. In the case of duplicate keys, the existing data is kept. This operation is "deep", meaning nested data is also appended. This operation does not affect lists.
 
 ```json
 {
