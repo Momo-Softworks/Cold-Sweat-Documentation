@@ -222,7 +222,7 @@ The `type_data` field is used to check entity-specific data, such as player info
 
 ### Entities with Variants
 
-Checks the variant of the given entity, such as the color of a cat, or the personality of a panda.
+**(1.18+)** Checks the variant of the given entity, such as the color of a cat, or the personality of a panda.
 
 ```json
 {
@@ -249,7 +249,7 @@ Checks if the fishing bobber is in an open body of water. This is probably used 
 
 ### Lightning Bolt
 
-Checks some specific conditions when lighning strikes a location.
+**(1.18+)** Checks some specific conditions when lighning strikes a location.
 
 ```json
 {
@@ -277,8 +277,7 @@ Checks if the player is wearing any armor that pacifies piglins (i.e. gold boots
 ```json
 {
   "type_data": {
-    "type": "piglin_neutral_armor",
-    "piglin_neutral_armor": true
+    "type": "piglin_neutral_armor"
   }
 }
 ```
@@ -400,7 +399,15 @@ For slimes, the `type_data` field should be an object with a single field named 
 
 ### Snow Boots
 
+**(1.18+)** Checks if the entity is wearing boots that prevent them from sinking in powder snow
 
+```json
+{
+  "type_data": {
+    "type": "snow_boots"
+  }
+}
+```
 
 [^1]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/nbt-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/nbt-requirement)
 
