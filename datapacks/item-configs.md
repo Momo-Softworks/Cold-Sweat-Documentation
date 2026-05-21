@@ -157,6 +157,7 @@ Given all of this information, we can take a look at an example insulation item:
   },
   // Attribute modifiers that are applied to the entity when the item is worn
   // For a list of Cold Sweat attributes, see <a data-footnote-ref href="#user-content-fn-3">Attributes</a>
+  // For a list of Vanilla attributes, see <a data-footnote-ref href="#user-content-fn-4">Attribute</a>
   "attributes": {
     "generic.movement_speed": [
       {
@@ -168,7 +169,7 @@ Given all of this information, we can take a look at an example insulation item:
   },
   // Provide protection against certain TempModifiers, reducing their effectiveness
   // A value of 1.0 is full protection
-  // See <a data-footnote-ref href="#user-content-fn-4">List of TempModifiers</a>
+  // See <a data-footnote-ref href="#user-content-fn-5">List of TempModifiers</a>
   "immune_temp_modifiers": {
     "cold_sweat:blocks": 0.5,
     "sereneseasons:season": 1.0
@@ -203,7 +204,7 @@ The format for fuel items is as follows:
   // Negative values indicate cold fuel (hearth only)
   "fuel": -100,
   // Items to be assigned this fuel value
-  // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
+  // An <a data-footnote-ref href="#user-content-fn-6">item requirement</a> that must pass for the item to be valid fuel
   "item": {
     "items": [
       "minecraft:slimeball"
@@ -226,7 +227,7 @@ Food items change the entity's body temperature when eaten. They support item re
   "required_mods": [
     "aether"
   ],
-  // An item requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
+  // An <a data-footnote-ref href="#user-content-fn-6">item requirement</a> that the item must meet for effects to be applied
   "item": {
     "items": [
       "minecraft:carrot",
@@ -236,7 +237,7 @@ Food items change the entity's body temperature when eaten. They support item re
   // Positive values increase temperature, negative values decrease
   "value": 20,
   // The entity must be in the overworld for this food to change its temperature
-  // An entity requirement (see <a data-footnote-ref href="#user-content-fn-1">Datapack Basics</a>)
+  // An <a data-footnote-ref href="#user-content-fn-7">entity requirement</a> that the entity consuming the item must meet
   "entity": {
     "location": {
       "dimension": "minecraft:overworld"
@@ -259,7 +260,7 @@ Items can be configured to affect the player's temperature when being carried in
   "required_mods": [
     "twilightforest"
   ],
-  // An <a data-footnote-ref href="#user-content-fn-5">item requirement</a> that the item must meet to emit temperature
+  // An <a data-footnote-ref href="#user-content-fn-8">item requirement</a> that the item must meet to emit temperature
   "item": {
     "items": [
       "minecraft:lava_bucket"
@@ -283,8 +284,14 @@ Items can be configured to affect the player's temperature when being carried in
   "trait": "world",
   // Limits the temperature change this item can cause, even when stacking
   "max_effect": 4,
-  // An <a data-footnote-ref href="#user-content-fn-6">entity requirement</a> that the entity must meet to be affected
-  "entity": {}
+  // An <a data-footnote-ref href="#user-content-fn-9">entity requirement</a> that the entity must meet to be affected
+  "entity": {},
+  // Provide protection against certain TempModifiers, reducing their effectiveness
+  // A value of 1.0 is full protection
+  // See <a data-footnote-ref href="#user-content-fn-10">List of TempModifiers</a>
+  "immune_temp_modifiers": {
+    "cold_sweat:water": 0.5
+  }
 }
 </code></pre>
 
@@ -298,18 +305,18 @@ Items can be configured to affect the player's temperature when being carried in
 
 ### Format
 
-```json
-{
+<pre class="language-json"><code class="lang-json">{
   "required_mods": [
     // nothing!
   ],
-  // An item requirement that the item must meet to be usable
+  // An <a data-footnote-ref href="#user-content-fn-6">item requirement</a> that the item must meet to be usable
   "item": {
     "items": [
       "minecraft:sponge"
     ]
   },
-  // An item stack
+  // The ItemStack returned to the player afterwards
+  // Omitting this field means the item will simply disappear when used
   "result": {
     "id": "minecraft:wet_sponge",
     "tag": {
@@ -327,7 +334,7 @@ Items can be configured to affect the player's temperature when being carried in
   // Sound that is played upon using the item
   "sound": "minecraft:block.wet_grass.step"
 }
-```
+</code></pre>
 
 [^1]: [https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements](https://mikul.gitbook.io/cold-sweat/datapacks/datapack-basics#item-requirements)
 
@@ -335,8 +342,18 @@ Items can be configured to affect the player's temperature when being carried in
 
 [^3]: [https://mikul.gitbook.io/cold-sweat/attributes#list-of-attributes](https://mikul.gitbook.io/cold-sweat/attributes#list-of-attributes)
 
-[^4]: [https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers](https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers)
+[^4]: [https://minecraft.wiki/w/Attribute#List\_of\_attributes](https://minecraft.wiki/w/Attribute#List_of_attributes)
 
-[^5]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/item-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement)
+[^5]: [https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers](https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers)
 
-[^6]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement)
+[^6]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/item-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/item-requirement)
+
+[^7]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/item-requirement)
+
+[^8]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/item-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement)
+
+[^9]: [https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement](https://mikul.gitbook.io/cold-sweat/datapacks/requirements/entity-requirement)
+
+[^10]: ```
+    https://mikul.gitbook.io/cold-sweat/list-of-tempmodifiers
+    ```

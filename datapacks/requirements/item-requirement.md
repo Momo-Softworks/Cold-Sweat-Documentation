@@ -51,7 +51,7 @@ These are modeled after Vanilla's item predicates, and are structured like so:
   // (1.20-) The item must have these NBT tags
   "nbt": {
     "SomeTag": true,
-    "SomeOtherTag": "1-10"
+    "SomeOtherTag": "1:10"
     // NBT tags can be nested
     "SomeNestedCompoundTag": {
       "ThisTagValue": 42,
@@ -61,7 +61,7 @@ These are modeled after Vanilla's item predicates, and are structured like so:
   // (1.21+) The item must have these components
   "components": {
     // Item has between 1 and 50 durability lost
-    "minecraft:damage": "1-50"
+    "minecraft:damage": "1:50"
   }
 <strong>}
 </strong></code></pre>

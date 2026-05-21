@@ -5,7 +5,7 @@ This is essentially the 1.21+ version of an NBT requirement, which checks an ite
 {% hint style="info" %}
 **Note:**&#x20;
 
-As of version 2.4, components requirements have been rewritten to behave like NBT requirements, meaning they implement custom NBT features such as `"cs:any_of"` and numerical ranges.&#x20;
+As of version 2.4, components requirements have been rewritten to behave like NBT requirements, meaning they implement custom NBT features such as `"cs:any_of"` and [numerical ranges](nbt-requirement.md#numerical-ranges).&#x20;
 
 On earlier versions, component data will be strictly matched against the target. Furthermore, components requirements must follow valid component syntax, meaning no fields in the component's structure may be omitted.
 {% endhint %}
@@ -15,7 +15,13 @@ Example:
 ```json
 {
   "components": {
-    "minecraft:damage": 0:10 // Between 0 and 10 damage
+    // Taken between 0 and 10 damage
+    "minecraft:damage": "0:10",
+    // Has these enchantments
+    "minecraft:enchantments": {
+      "minecraft:blast_protection": 2,
+      "minecraft:sharpness": 3
+    }
   }
 }
 ```

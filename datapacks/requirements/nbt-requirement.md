@@ -97,7 +97,7 @@ Example:
 
 ### `cs:contains_all`
 
-Checks if the list contains all of the given values, and fails if one or more of the specified elements are not present. The list may contain additional entries not included in the check.
+Checks if the list contains all of the given values, and fails if one or more of the required entries are not present. The target list may contain additional entries outside of the ones required by the check.
 
 Example:
 
@@ -110,7 +110,7 @@ Example:
       {
         "Slot": 0
         "id": "minecraft:torch",
-        "Count": "1-54"
+        "Count": "1:54"
       },
       // Chameleon molt in slot 5 (sixth slot)
       {

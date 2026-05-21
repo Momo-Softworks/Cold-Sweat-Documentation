@@ -73,9 +73,9 @@ By default, a negatable list of requirements will succeed if:
 However, it is possible to change this behavior using two optional parameters:
 
 * **`require_all`**\
-  ALL requirements must be match the target for the list to succeed. If one requirement does not match, the entire negatable list will fail and exclusions will also be skipped.
+  ALL requirements must match the target for the negatable list to succeed. If one requirement does not match, the entire negatable list will fail and exclusions will also be skipped.
 * **`exclude_all`**\
-  ALL exclusions must match the target for the list to fail. If one exclusion does not match, the rest of the exclusions will be ignored.
+  ALL exclusions must match the target for the negatable list to fail. If one exclusion does not match, the rest of the exclusions will be ignored.
 
 ```json
 {
