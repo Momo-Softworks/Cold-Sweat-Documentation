@@ -234,14 +234,49 @@ Food items change the entity's body temperature when eaten. They support item re
       "#minecraft:piglin_food"
     ]
   },
-  // Positive values increase temperature, negative values decrease
-  "value": 20,
+  // The amount to change the player's temperature by
+  "temperature": 20,
+  // The duration of the effect. 
+  // If defined, the food adds to the player's BASE trait instead of CORE
+  // After this duration, the effect is removed
+  "duration": 100,
   // The entity must be in the overworld for this food to change its temperature
   // An <a data-footnote-ref href="#user-content-fn-7">entity requirement</a> that the entity consuming the item must meet
   "entity": {
     "location": {
       "dimension": "minecraft:overworld"
     }
+  },
+  // A collection of temperature modifiers to apply to the entity
+  "temp_modifiers": {
+    // Apply these modifiers to the player's "world" trait
+    "world": [
+      // Add a custom temp modifier from "mymod" 
+      {
+        // The ID of the modifier to apply
+        "type": "mymod:my_temp_modifier",
+        // The duration of the modifier. Omitting this makes it last forever
+        // Can be different from the duration of the food effect itself
+        "expire_time": 500,
+        // The time in ticks between updates for this modifier. Defaults to every tick (1)
+        "tick_rate": 10,
+        // NBT that the modifier should have upon creation
+        "nbt": {}
+      },
+      // Add an NBT-controlled "simple" modifier
+      {
+        "type": "cold_sweat:simple",
+        "tick_rate": 5,
+        "expire_time": 100,
+        "nbt": {
+          "Temperature": 0.5,
+          "Operation": "add"
+        }
+      }
+    ],
+    "burning_point": [
+      //... also apply some temperature modifiers to this trait
+    ]
   }
 }
 </code></pre>
