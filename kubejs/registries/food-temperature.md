@@ -18,6 +18,12 @@ ColdSweatEvents.registries(event =>
             // The maximum number of times this food can be eaten with "stacking" effects
             // Eating more than this amount will replace the most recent effect in the stack
             .stackLimit(5)
+            // Add a temperature modidier to the player upon eating
+            .modifier("world", "cold_sweat:simple") // trait and modidier ID
+                .tickRate(5)
+                .expireTime(100)
+                .nbt(new CompoundTag())
+                .build()
             // The item must match this predicate to be valid
             .itemPredicate(itemStack => {
                 return itemStack.getCount() < 10
