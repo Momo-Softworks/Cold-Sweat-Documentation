@@ -49,7 +49,8 @@ You might be familiar with BlockTemps from [previous sections](https://mikul.git
   "units": "f",
   // (default=true) Makes the block's effect fade with increasing distance
   "fade": true,
-  // The radius of the block's area-of-effect
+  // The radius of the block's area-of-effect. 
+  // This is limited to the max range config in world.toml
   "range": 7,
   // (optional) This block cannot heat the local area to above this value
   "max_temp": 100,
