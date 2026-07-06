@@ -42,8 +42,8 @@ You might be familiar with BlockTemps from [previous sections](https://mikul.git
   },
   // The temperature of the block
   "temperature": 5,
-  // The maximum temperature change that this BlockTemp can cause
-  // Multiple instances of this block can only heat/cool up to this amount
+  // The maximum temperature change that this block can cause
+  // Multiple instances of this block can only heat/cool by up to this amount
   "max_effect": 20,
   // Temperature units to use. All temperature fields must be specified in these units
   "units": "f",
@@ -61,7 +61,7 @@ You might be familiar with BlockTemps from [previous sections](https://mikul.git
   "entity": {},
   // (optional) Multiple instances of this block will apply temperature logarithmically 
   // (diminishing returns)
-  "logarithmic": false,
+  "logarithmic": false
 }
 </code></pre>
 
