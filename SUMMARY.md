@@ -39,6 +39,7 @@
   * [Fuel items](kubejs/registries/fuel-items.md)
   * [Item Temperature](kubejs/registries/item-temperature.md)
   * [Biome Temperature](kubejs/registries/biome-temperature.md)
+  * [Dimension Temperature](kubejs/registries/dimension-temperature.md)
 
 ## Add-Ons
 
