@@ -6,7 +6,7 @@ Cold Sweat allows for adding temperature properties to items when in the player'
 
 <pre class="language-javascript"><code class="lang-javascript">ColdSweatEvents.registries(event =>
 {
-    // Builder-style food temperature definition
+    // Builder-style item temperature definition
     event.addItemTemperature(item =>
         // Registers the food temperature to these items
         item.items("minecraft:blaze_powder", "#forge:rods/blaze")

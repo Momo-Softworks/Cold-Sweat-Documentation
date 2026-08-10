@@ -38,6 +38,7 @@
   * [Food Temperature](kubejs/registries/food-temperature.md)
   * [Fuel items](kubejs/registries/fuel-items.md)
   * [Item Temperature](kubejs/registries/item-temperature.md)
+  * [Biome Temperature](kubejs/registries/biome-temperature.md)
 
 ## Add-Ons
 
