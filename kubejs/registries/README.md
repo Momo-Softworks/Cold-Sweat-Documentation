@@ -14,9 +14,9 @@ description: Index of registry methods for Cold Sweat's KubeJS integration
 
 [Carried Item Temperature](item-temperature.md)
 
-Biome Temperature
+[Biome Temperature](biome-temperature.md)
 
-Dimension Temperature
+[Dimension Temperature](dimension-temperature.md)
 
 Structure Temperature
 
